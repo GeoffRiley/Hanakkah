@@ -2,3 +2,7 @@
 *Zone.Identifier
 *.DS_Store
 *.swp
+*.pyc
+*.pyo
+*.pyd
+__pycache__/

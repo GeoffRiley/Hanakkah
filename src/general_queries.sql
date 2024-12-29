@@ -1,0 +1,41 @@
+-- SQLite
+
+-- SELECT c.customerid, name, phone, 
+--  SUBSTR(name, INSTR(name, ' ')+1) AS last_name
+-- -- orderid, ordered, shipped
+--  FROM customers c 
+--  INNER JOIN orders o ON c.customerid = o.customerid
+--  WHERE SUBSTR(name, 1, 1) = 'J' AND SUBSTR(name, INSTR(name, ' ')+1, 1) = 'P'
+--  GROUP BY last_name, o.ordered
+--  ORDER BY last_name, o.ordered
+-- -- HAVING (STRFTIME('%Y',ordered)) = 2017
+-- ;
+
+-- SELECT name, c.customerid, address, phone, 
+--  STRFTIME('%Y',MIN(ordered)) AS first_order, 
+--  STRFTIME('%Y',MAX(ordered)) AS last_order
+--  FROM customers c 
+--  INNER JOIN orders o ON c.customerid = o.customerid
+--  WHERE SUBSTR(name, 1, 1) = 'J' AND
+--   SUBSTR(name, INSTR(name, ' ')+1, 1) = 'P'
+--  GROUP BY name
+--  ORDER BY last_order DESC
+-- ;
+
+-- SELECT *
+-- FROM products
+-- WHERE desc LIKE '%offee%' or desc LIKE '%agel%'
+-- ;
+-- -- BKY1573 BKY5717 DLI8820
+
+-- SELECT oi.orderid, COUNT(oi.sku) AS items, c.name, c.phone
+-- FROM orders_items oi
+-- INNER JOIN orders o ON oi.orderid = o.orderid
+-- INNER JOIN customers c ON o.customerid = c.customerid
+-- WHERE sku IN ('BKY1573', 'BKY5717', 'DLI8820') AND
+--  SUBSTR(name, 1, 1) = 'J' AND
+--  SUBSTR(name, INSTR(name, ' ')+1, 1) = 'P'
+-- GROUP BY oi.orderid 
+-- HAVING COUNT(oi.sku) > 1 
+-- ORDER BY items DESC
+-- ;
