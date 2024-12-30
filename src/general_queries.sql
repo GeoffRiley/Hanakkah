@@ -39,3 +39,40 @@
 -- HAVING COUNT(oi.sku) > 1 
 -- ORDER BY items DESC
 -- ;
+-- Contractor found: (7459, 2, 'Joshua Peterson', '332-274-4185')
+-- SELECT *
+-- FROM customers
+-- WHERE name = 'Joshua Peterson' AND phone = '332-274-4185'
+-- ;
+-- customerid: 1475
+-- name: Joshua Peterson
+-- address: 100-75 148th St
+-- citystatezip: Jamaica, NY 11435
+-- birthdate: 1947-02-05
+-- phone: 332-274-4185
+-- timezone: America/New_York
+-- lat: 40.70895
+-- long: -73.80856
+
+
+-- Check if birthdate is for a astrological Cancer
+-- that is between June 21 and July 22
+-- Check also that the year is one of the Chinese zodiac years
+-- of the Rabbit. 1927, 1939, 1951, 1963, 1975, 1987, 1999, 2011
+-- SELECT *
+-- FROM customers
+-- WHERE STRFTIME('%m%d', birthdate) >= '0621' AND
+--  STRFTIME('%m%d', birthdate) <= '0722' AND 
+--  STRFTIME('%Y', birthdate) IN ('1927', '1939', '1951', '1963', '1975', '1987', '1999', '2011') AND
+--  SUBSTR(citystatezip,1,3) = 'Jam'
+-- ;
+-- customerid: 2550
+-- name: Robert Morton
+-- address: 145-51 107th Ave
+-- citystatezip: Jamaica, NY 11435
+-- birthdate: 1999-07-08
+-- phone: 917-288-9635
+-- timezone: America/New_York
+-- lat: 40.68959
+-- long: -73.80487
+
