@@ -76,3 +76,15 @@
 -- lat: 40.68959
 -- long: -73.80487
 
+-- Woman made multiple purchases of pastries before 5am
+-- SELECT c.name, c.phone, COUNT(oi.sku) as items
+-- FROM orders_items oi
+-- INNER JOIN orders o ON oi.orderid = o.orderid
+-- INNER JOIN customers c ON o.customerid = c.customerid
+-- WHERE sku LIKE 'BKY%' AND
+--   STRFTIME('%H%m', shipped) < '0500'
+--   GROUP BY c.customerid
+--     HAVING COUNT(oi.sku) > 2
+-- ;
+ 
+ 

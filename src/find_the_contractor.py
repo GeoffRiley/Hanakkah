@@ -37,3 +37,5 @@ if __name__ == "__main__":
         print(f"Found {len(contractors)} contractors.")
     else:
         print("Contractor not found.")
+
+# Contractor found: (7459, 2, 'Joshua Peterson', '332-274-4185')
