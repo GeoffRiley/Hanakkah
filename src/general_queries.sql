@@ -87,4 +87,21 @@
 --     HAVING COUNT(oi.sku) > 2
 -- ;
  
- 
+WITH cte AS (
+    SELECT c.name,
+           c.phone,
+           c.customerid,
+           COUNT(oi.sku) AS items,
+           DENSE_RANK() OVER (ORDER BY COUNT(oi.sku) DESC) AS rnk
+    FROM customers c
+    JOIN orders o ON c.customerid = o.customerid
+    JOIN orders_items oi ON o.orderid = oi.orderid
+    JOIN products p ON oi.sku = p.sku
+    WHERE citystatezip LIKE 'Staten Island%'
+      AND UPPER(desc) LIKE '%CAT%'
+    GROUP BY c.customerid
+)
+SELECT name, phone, items
+FROM cte
+WHERE rnk = 1;
+
